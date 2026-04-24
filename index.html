@@ -1,1 +1,313 @@
-404: Not Found
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fragua - Espacios Comerciales Premium | Pisos 2, 3, 4 y 5</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; background: #fff; line-height: 1.6; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; background: #f8f8f8; border-bottom: 1px solid #e0e0e0; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 28px; font-weight: 600; color: #0066cc; }
+        .nav-buttons { display: flex; gap: 1rem; }
+        .btn { padding: 0.8rem 1.6rem; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; }
+        .btn-primary { background: #0066cc; color: white; }
+        .btn-primary:hover { background: #0052a3; transform: translateY(-2px); }
+        .btn-secondary { background: transparent; border: 2px solid #0066cc; color: #0066cc; }
+        .btn-secondary:hover { background: #0066cc; color: white; }
+        .hero { background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%); padding: 6rem 2rem; text-align: center; }
+        .hero-content { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 1.5rem; color: #1a1a1a; }
+        .hero p { font-size: 20px; color: #666; margin-bottom: 2.5rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 42px; font-weight: 700; margin-bottom: 3.5rem; text-align: center; color: #1a1a1a; }
+        .pisos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+        .piso-card { background: #fff; border: 2px solid #e0e0e0; border-radius: 12px; padding: 2.5rem; text-align: center; transition: all 0.3s; }
+        .piso-card:hover { border-color: #0066cc; box-shadow: 0 8px 24px rgba(0, 102, 204, 0.15); transform: translateY(-8px); }
+        .piso-number { font-size: 64px; font-weight: 700; color: #0066cc; margin-bottom: 0.5rem; }
+        .piso-label { font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 1rem; }
+        .piso-description { color: #666; margin-bottom: 1.5rem; font-size: 14px; }
+        .feature-list { text-align: left; margin: 1.5rem 0; }
+        .feature-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 13px; color: #555; }
+        .feature-check { color: #27ae60; font-weight: 700; }
+        .info-box { background: #f8f8f8; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        .info-box-label { font-weight: 600; color: #1a1a1a; font-size: 13px; }
+        .caracteristicas { background: #f5f5f5; padding: 5rem 2rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .feature-box { background: #fff; padding: 2rem; border-radius: 12px; border-left: 5px solid #0066cc; }
+        .feature-box h3 { font-size: 20px; font-weight: 600; margin-bottom: 1rem; color: #1a1a1a; }
+        .feature-box p { color: #666; font-size: 14px; line-height: 1.7; }
+        .ubicacion-section { background: #fff; padding: 5rem 2rem; }
+        .ubicacion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; align-items: center; }
+        .ubicacion-content h3 { font-size: 32px; font-weight: 700; margin-bottom: 1.5rem; }
+        .ubicacion-content p { color: #666; margin-bottom: 1.5rem; font-size: 15px; line-height: 1.8; }
+        .ubicacion-info { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
+        .google-maps-embed { border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; color: white; border: none; border-radius: 50%; font-size: 32px; cursor: pointer; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        .info-importante { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .info-card { background: #fff; padding: 2rem; border-radius: 12px; border-top: 4px solid #0066cc; text-align: center; }
+        .info-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 1rem; }
+        .info-card p { color: #666; font-size: 14px; }
+        .galeria-section { padding: 5rem 2rem; background: #fff; max-width: 1200px; margin: 0 auto; }
+        .piso-galeria { margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 2px solid #f0f0f0; }
+        .galeria-titulo { font-size: 24px; font-weight: 600; color: #0066cc; margin-bottom: 2rem; padding-left: 1rem; border-left: 4px solid #0066cc; }
+        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .foto-placeholder { background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); border-radius: 12px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 2px dashed #bbb; transition: all 0.3s; cursor: pointer; }
+        .foto-placeholder:hover { border-color: #0066cc; background: linear-gradient(135deg, #f0f0ff 0%, #e0e8ff 100%); transform: translateY(-4px); }
+        .placeholder-content { text-align: center; color: #999; }
+        .foto-icono { font-size: 48px; display: block; margin-bottom: 0.5rem; }
+        .placeholder-content p { font-size: 14px; font-weight: 500; color: #666; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .step { text-align: center; }
+        .step-number { width: 70px; height: 70px; background: #0066cc; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; margin: 0 auto 1.5rem; }
+        .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 0.75rem; }
+        .step p { color: #666; font-size: 14px; }
+        .contacto { background: #f5f5f5; padding: 5rem 2rem; }
+        .contacto-wrapper { max-width: 600px; margin: 0 auto; }
+        .contacto-form { background: #fff; padding: 2.5rem; border-radius: 12px; margin-top: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.6rem; font-weight: 600; font-size: 14px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; transition: all 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #0066cc; box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .submit-btn { width: 100%; padding: 1rem; background: #0066cc; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+        .submit-btn:hover { background: #0052a3; transform: translateY(-2px); }
+        .footer { background: #1a1a1a; padding: 3rem 2rem 1rem; text-align: center; color: #999; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto 2rem; }
+        .footer-section h3 { color: #fff; font-size: 16px; margin-bottom: 0.75rem; font-weight: 600; }
+        .footer-section p { font-size: 13px; line-height: 1.6; margin-bottom: 0.5rem; }
+        .footer-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .footer-link { display: inline-block; padding: 0.75rem 1.5rem; background: #0066cc; color: white; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600; transition: all 0.3s; }
+        .footer-link:hover { background: #0052a3; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 1.5rem; font-size: 12px; color: #666; }
+        @media (max-width: 768px) { .section-title { font-size: 32px; } .galeria-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">La Fragua</div>
+        <div class="nav-buttons">
+            <button class="btn btn-secondary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contacto</button>
+            <button class="btn btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar Visita</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Espacios Comerciales Premium en La Fragua</h1>
+            <p>Pisos 2, 3, 4 y 5 disponibles para arrendamiento. Ubicación estratégica en el corazón comercial de Bogotá con excelente visibilidad y acceso.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('pisos').scrollIntoView({behavior:'smooth'})">Ver Pisos Disponibles</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('caracteristicas').scrollIntoView({behavior:'smooth'})">Conocer más</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="pisos" class="section">
+        <h2 class="section-title">Pisos Disponibles</h2>
+        <div class="pisos-grid">
+            <div class="piso-card">
+                <div class="piso-number">2</div>
+                <div class="piso-label">Piso Segundo</div>
+                <div class="piso-description">Espacio versátil con excelentes características para múltiples usos comerciales</div>
+                <div class="info-box">
+                    <span class="info-box-label">Uso actual: Bodega y baños</span>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Acceso directo por escalera común</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Servicios públicos completos</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Buen estado de conservación</span></div>
+                </div>
+                <button class="btn btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar Visita</button>
+            </div>
+
+            <div class="piso-card">
+                <div class="piso-number">3</div>
+                <div class="piso-label">Piso Tercero</div>
+                <div class="piso-description">Área versátil con múltiples espacios, ideal para oficinas y consultorios</div>
+                <div class="info-box">
+                    <span class="info-box-label">Recepción, oficinas, gerencia, cocina, baños</span>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Zonas de recepción amplias</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Divisiones modulables</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Cocina y servicios completos</span></div>
+                </div>
+                <button class="btn btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar Visita</button>
+            </div>
+
+            <div class="piso-card">
+                <div class="piso-number">4</div>
+                <div class="piso-label">Piso Cuarto</div>
+                <div class="piso-description">Espacio optimizado para oficinas administrativas y profesionales</div>
+                <div class="info-box">
+                    <span class="info-box-label">Oficinas con divisiones, baños, sistemas</span>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Espacios para equipos tecnológicos</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Baños modernos y funcionales</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Infraestructura técnica disponible</span></div>
+                </div>
+                <button class="btn btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar Visita</button>
+            </div>
+
+            <div class="piso-card">
+                <div class="piso-number">5</div>
+                <div class="piso-label">Piso Quinto</div>
+                <div class="piso-description">Espacio amplio y flexible, ideal para negocios que requieren área mayor</div>
+                <div class="info-box">
+                    <span class="info-box-label">Salón principal, archivo, baños, depósito, cocineta</span>
+                </div>
+                <div class="feature-list">
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Salón principal versátil</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Áreas de almacenamiento</span></div>
+                    <div class="feature-item"><span class="feature-check">✓</span><span>Cocineta y servicios completos</span></div>
+                </div>
+                <button class="btn btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar Visita</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="galeria-section">
+        <h2 class="section-title">📸 Galería de Espacios</h2>
+        <div class="piso-galeria">
+            <h3 class="galeria-titulo">Piso 2 - Bodega y Apoyo</h3>
+            <div class="galeria-grid">
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Vista General</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Área de Bodega</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Baños</p></div></div>
+            </div>
+        </div>
+        <div class="piso-galeria">
+            <h3 class="galeria-titulo">Piso 3 - Oficinas y Gerencia</h3>
+            <div class="galeria-grid">
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Recepción</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Oficinas</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Gerencia</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Cocina</p></div></div>
+            </div>
+        </div>
+        <div class="piso-galeria">
+            <h3 class="galeria-titulo">Piso 4 - Oficinas Administrativas</h3>
+            <div class="galeria-grid">
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Planta Abierta</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Divisibles</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Sistemas</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Baños</p></div></div>
+            </div>
+        </div>
+        <div class="piso-galeria">
+            <h3 class="galeria-titulo">Piso 5 - Salón Principal y Archivo</h3>
+            <div class="galeria-grid">
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Salón Principal</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Archivo</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Baños</p></div></div>
+                <div class="foto-placeholder"><div class="placeholder-content"><span class="foto-icono">📷</span><p>Depósito</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="caracteristicas" class="caracteristicas">
+        <h2 class="section-title">Por qué elegir La Fragua</h2>
+        <div class="features-grid">
+            <div class="feature-box"><h3>📍 Ubicación Estratégica</h3><p>Carrera 30 No. 17-20 Sur, Bogotá. En el corazón comercial con gran visibilidad y acceso directo.</p></div>
+            <div class="feature-box"><h3>🏢 Edificio Moderno</h3><p>Estructura aporticada con 5 pisos, acabados de excelente calidad, estado óptimo.</p></div>
+            <div class="feature-box"><h3>⚡ Infraestructura Completa</h3><p>Servicios públicos, escalera común, instalaciones de calidad.</p></div>
+            <div class="feature-box"><h3>🔧 Flexibilidad de Uso</h3><p>Apto para oficinas, comercio, consultorios, servicios profesionales.</p></div>
+            <div class="feature-box"><h3>🛡️ Seguridad y Dotación</h3><p>Zona segura con buena dotación de servicios públicos y transporte.</p></div>
+            <div class="feature-box"><h3>💰 Rendimiento de Renta</h3><p>Ubicación con buenos indicadores de mercado para arrendamiento comercial.</p></div>
+        </div>
+    </section>
+
+    <section class="ubicacion-section">
+        <h2 class="section-title">Ubicación</h2>
+        <div class="ubicacion-grid">
+            <div class="ubicacion-content">
+                <h3>Carrera 30 No. 17-20 Sur, Bogotá</h3>
+                <p>La Fragua se encuentra en una localización privilegiada, rodeada de servicios de excelente calidad y con fácil acceso vehicular y peatonal.</p>
+                <div class="ubicacion-info">
+                    <strong>Ubicación</strong>
+                    <span>Zona segura con excelente acceso vehicular y peatonal desde diferentes puntos de la ciudad.</span>
+                </div>
+            </div>
+            <iframe class="google-maps-embed" src="https://www.google.com/maps/embed?pb=!4v1776992695178!6m8!1m7!1s3kCoN3TRtyiaXaCkrKh1Rw!2m2!1d4.596200069936718!2d-74.10999657437812!3f133.3674572882962!4f6.191549714509662!5f0.7820865974627469" width="100%" height="450" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="proceso">
+        <h2 class="section-title">Información Importante</h2>
+        <div class="info-importante">
+            <div class="info-card"><h3>⏱️ Duración</h3><p>Plazo flexible + renovación automática. Términos negociables.</p></div>
+            <div class="info-card"><h3>💳 Condiciones de Pago</h3><p>Anticipado según términos acordados. Opciones flexibles disponibles.</p></div>
+            <div class="info-card"><h3>💬 Negociación</h3><p>¡Sí! Hay espacio para conversar. Contactanos para discutir términos.</p></div>
+        </div>
+    </section>
+
+    <section class="proceso">
+        <h2 class="section-title">Proceso de Arrendamiento</h2>
+        <div class="steps">
+            <div class="step"><div class="step-number">1</div><h3>Consulta Inicial</h3><p>Ponte en contacto para conocer disponibilidad y características.</p></div>
+            <div class="step"><div class="step-number">2</div><h3>Visita Guiada</h3><p>Agenda una visita para recorrer personalmente el inmueble.</p></div>
+            <div class="step"><div class="step-number">3</div><h3>Negociación</h3><p>Discute términos y condiciones adaptados a tu proyecto.</p></div>
+            <div class="step"><div class="step-number">4</div><h3>Formalización</h3><p>Firma de contrato y acceso a tu nuevo espacio comercial.</p></div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <div class="contacto-wrapper">
+            <h2 class="section-title">Agenda Tu Visita</h2>
+            <div class="contacto-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+57 3XX XXX XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="piso">Piso de Interés</label>
+                        <input type="text" id="piso" name="piso" placeholder="Piso 2, 3, 4 o 5">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Agendar Visita</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section"><h3>La Fragua</h3><p>Espacios Comerciales Premium en Bogotá</p></div>
+            <div class="footer-section"><h3>Contacto</h3><p>📍 Carrera 30 No. 17-20 Sur</p><p>Bogotá, Cundinamarca</p></div>
+            <div class="footer-section"><h3>Conecta con nosotros</h3>
+                <div class="footer-links">
+                    <a href="https://wa.me/573044216060?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20pisos%20disponibles%20en%20La%20Fragua" target="_blank" class="footer-link">💬 WhatsApp</a>
+                    <a href="mailto:gerencia@novacris.com" class="footer-link">📧 Email</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 La Fragua. Todos los derechos reservados.</p></div>
+    </footer>
+
+    <a href="https://wa.me/573044216060?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20pisos%20disponibles%20en%20La%20Fragua" class="whatsapp-btn" title="Contactar por WhatsApp" target="_blank">💬</a>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu interés! Nos contactaremos pronto.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
